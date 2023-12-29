@@ -1,0 +1,53 @@
+<html>
+  <body>
+    <h3 
+      ng-class="{'valid':UserName.$valid}">Enter User Email
+      <input #UserName
+      type="email" 
+      placeholder="Enter Email"
+      class="form-control"
+      [(ngModel)]="User"
+      required
+      >
+    </h3>
+    
+    <h3 
+      ng-class="{'valid':DeptName.$valid}"> Choose Department
+      <select #DeptName
+      type="text"
+      class="form-control" 
+      [(ngModel)]='this.Dept' 
+      required
+      >
+        <option *ngFor="let x of DeptOption" [ngValue]="x">{{x}}</option>
+      </select>
+    </h3>
+    
+    <div>
+      <!-- Adds Confirm button and CLick Functionality -->
+      <button style="margin-right:10%" class="KitCreate"       (click)="LogIn()" *ngIf="( this.Dept && this.User)">Log In</button>
+    </div>
+
+    <table>
+      <!-- Creates Table Headers -->
+      <td>Kit Number</td>
+      <td>Work Order Number</td>
+      <td>Lot Number</td>
+      <td>Scheduled Date</td>
+      <td>KIT Step</td>
+      <td>Department</td>
+      <td>Col6</td>
+
+      <!-- Creates Item to Display array of items by looping over all array elements -->
+      <tr *ngFor="let item of Kits">
+          <td>{{ item.KitNum  | uppercase  }}</td>
+          <td>{{ item.LotNum  | uppercase  }}</td>
+          <td>{{ item.WONum  | uppercase  }}</td>
+          <td>{{ item.PSDate | date: 'ddMMMyyyy' | uppercase }}</td>
+          <td>{{ item.ProcessStep }}</td>
+          <td>{{ item.DEPT }}</td>
+          <td>{{ item.InputDate | date: 'ddMMMyyyy' | uppercase }}</td>
+      </tr>
+  </table>
+  </body>
+</html>

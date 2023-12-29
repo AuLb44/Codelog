@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <h1>Request Additional Materials</h1>
+    
+        <!-- Creates Button Attached to Text Entry Box, and adds functionanlity to buton press -->
+        <button style="margin-right:50%" class="Add Item">
+            Add Item
+          </button>
+    
+        <!-- Adds Back button and CLick Functionality -->
+        <button class="Back" (click)="BackButton()" >
+            Back
+        </button>
+    
+        <!-- Display Table Creation Section -->
+        <table>
+            <!-- Creates Table Headers -->
+            <td>Kit Number</td>
+            <td>Lot Number</td>
+            <td>Work Order Number</td>
+            <td>Scheduled Date</td>
+            <td>Process Step</td>
+            <td>Creation Date</td>
+      
+            <!-- Creates Item to Display array of items by looping over all array elements -->
+            <tr *ngFor="let item of jobsList">
+              <td>{{ item.KitNum  | uppercase  }}</td>
+              <td>{{ item.LotNum  | uppercase  }}</td>
+              <td>{{ item.WONum  | uppercase  }}</td>
+              <td>{{ item.PSDate | date: 'ddMMMyyyy' | uppercase }}</td>
+              <td>{{ item.ProcessStep }}</td>
+              <td>{{ item.InputDate | date: 'ddMMMyyyy' | uppercase }}</td>
+            </tr>
+        </table>
+    </body>    
+</html>

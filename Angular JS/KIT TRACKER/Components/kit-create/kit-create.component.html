@@ -1,0 +1,88 @@
+<html>
+    <body>
+        <h1>Kit Creation</h1>
+
+        <!-- KIT Number Entry Box -->
+        <h3>Kit Number
+            <input #KitNum 
+            type="any" minlength="1"
+            [(ngModel)]="tempval.KitNum" 
+            placeholder="Enter Lot ID">
+        </h3>
+  
+        <!-- Lot Number Entry Box -->
+        <h3>Lot Number
+            <input #LotNum 
+            type="any" minlength="1"
+            [(ngModel)]="tempval.LotNum" 
+            placeholder="Enter SKU ID">
+        </h3>
+  
+        <!-- Work Order Number Entry Box -->
+        <h3>Work Order Number
+            <input #WorkOrderNum
+            type="any" minlength="1"
+            [(ngModel)]="tempval.WONum"  
+            placeholder="Enter Location">
+        </h3>
+  
+        <!-- Date Scheduled Entry Box -->
+        <h3>Date Scheduled
+            <input #DateSched
+            type=date minlength="1"
+            [(ngModel)]="tempval.PSDate"  
+            placeholder="Enter Date Scheduled">
+        </h3>
+
+        <!-- Date Scheduled Entry Box -->
+        <h3>Time Scheduled
+            <input #TimeSched
+            type=time 
+            placeholder="Enter Time Scheduled">
+        </h3>
+  
+        <!-- QTY Entry Box -->
+        <h3>Number of Pallets
+            <input #QTY
+            type=number min="0"
+            [(ngModel)]="tempval.QTY"  
+            placeholder="Enter Number up Pallets">
+        </h3>
+
+        <!-- Creates Button Attached to Text Entry Box, and adds functionanlity to buton press -->
+        <button class="Add Item" (click)="CreateJob(tempval)" style="margin-right:20%">
+          Add Item
+        </button>
+    
+        <!-- Adds Back button and CLick Functionality -->
+        <button class="Back" (click)="BackButton()" style="margin-right:20%">
+            Back
+        </button>
+
+        <!-- Adds Refresh Button and CLick Functionality -->
+        <button class="Refresh" (click)="RefreshSubscribe(this.QuerySwitch)" >
+            Refresh
+        </button>
+    
+        <!-- Display Table Creation Section -->
+        <table>
+            <!-- Creates Table Headers -->
+            <td>Kit Number</td>
+            <td>Work Order Number</td>
+            <td>Lot Number</td>
+            <td>Scheduled Date</td>
+            <td>KIT Step</td>
+            <td>Col6</td>
+    
+            <!-- Creates Item to Display array of items by looping over all array elements -->
+            <tr *ngFor="let item of Kits">
+                <td>{{ item.KitNum  | uppercase  }}</td>
+                <td>{{ item.LotNum  | uppercase  }}</td>
+                <td>{{ item.WONum  | uppercase  }}</td>
+                <td>{{ item.PSDate | date: 'ddMMMyyyy' | uppercase }}</td>
+                <td>{{ item.ProcessStep }}</td>
+                <td>{{ item.InputDate }}</td>
+            </tr>
+        </table>
+    </body>  
+</html>

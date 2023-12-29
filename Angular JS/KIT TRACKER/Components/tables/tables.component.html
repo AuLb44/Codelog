@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <h1>Kit Tables</h1>
+        <!-- Creates Button Attached to Text Entry Box, and adds functionanlity to buton press -->
+        <button class="Created" (click)="Create()" style="margin-right:5%">
+          Kits Created
+        </button>
+    
+        <!-- Adds Back button and CLick Functionality -->
+        <button class="Request" (click)="Request()" style="margin-right:5%">
+            Kit Requests
+        </button>
+
+        <!-- Adds Refresh Button and CLick Functionality -->
+        <button class="Histo" (click)="Historical()" style="margin-right:5%">
+            Kit Historical Log
+        </button>
+
+        <!-- Adds Refresh Button and CLick Functionality -->
+        <button class="ToBeDone" (click)="ToBeDone()" style="margin-right:5%">
+            Kits needing to be actioned on
+        </button>
+
+        <!-- Display Table Creation Section -->
+        <table>
+            <!-- Creates Table Headers -->
+            <td>Kit Number</td>
+            <td>Work Order Number</td>
+            <td>Lot Number</td>
+            <td>QTY</td>
+            <td>Scheduled Date</td>
+            <td>Scheduled Time</td>
+            <td>KIT Step</td>
+            <td>Department Needed</td>
+            <td>User Submitted</td>
+
+    
+            <!-- Creates Item to Display array of items by looping over all array elements -->
+            <tr *ngFor="let item of Kits">
+                <td>{{ item.KitNum  | uppercase  }}</td>
+                <td>{{ item.LotNum  | uppercase  }}</td>
+                <td>{{ item.WONum  | uppercase  }}</td>
+                <td>{{ item.QTY }}</td>
+                <td>{{ item.PSDate | date: 'ddMMMyyyy' | uppercase }}</td>
+                <td>{{ item.TimeNeeded }}</td>
+                <td>{{ item.ProcessStep }}</td>
+                <td>{{ item.DEPT }}</td>
+                <td>{{ item.USER }}</td>
+            </tr>
+        </table>
+    </body>  
+</html>
