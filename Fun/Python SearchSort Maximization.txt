@@ -1,0 +1,8 @@
+.xxx..xx.xxx.. Should be 5
+...xxxx...     Should be 3
+.....          Should be 0
+
+value is k + 1 consecutive x
+S = string of . and x
+B is budget 
+Find formula to make count most x removed for to maximize B for S
