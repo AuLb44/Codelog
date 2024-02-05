@@ -1,0 +1,6 @@
+#cloud-boothook
+#!/bin/bash
+sleep 10
+sudo su
+cd /opt/minecraft/server
+./start.sh
